@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieComponent } from './movie/movie.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TopRatedMoviesComponent } from './top-rated-movies/top-rated-movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    MovieComponent
+    MovieComponent,
+    TopRatedMoviesComponent
   ],
   imports: [
     BrowserModule,

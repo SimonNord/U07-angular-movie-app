@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MoviesService } from '../movies.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -9,19 +10,12 @@ import { MoviesService } from '../movies.service';
 })
 export class MoviesComponent implements OnInit {
 
- movies = [{
-   title : "Title",
-   Description: "jdsadi lsad aljasd ljasd ald ad"
- },
- {
- title : "Title 2",
- Description: "dsda lsadsadas alj asd aasd ljasd ald ad"
-}];
+topRatedMovies;
+imgBaseUrl = "https://image.tmdb.org/t/p/w185/"
 
-  constructor(private moviesService: MoviesService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(){}
 
-
+  
 }
