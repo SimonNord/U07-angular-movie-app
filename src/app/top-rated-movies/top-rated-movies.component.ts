@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { MoviesService } from '../movies.service';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-top-rated-movies',
@@ -12,6 +11,7 @@ export class TopRatedMoviesComponent implements OnInit {
 
   
 topRatedMovies;
+
 imgBaseUrl = "https://image.tmdb.org/t/p/w185/"
 
   constructor(private moviesService: MoviesService) { }

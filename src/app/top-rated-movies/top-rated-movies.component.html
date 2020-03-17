@@ -6,9 +6,8 @@
             <div class="card-body">
                 <h4 class="card-title">{{movie.title}}</h4>
                 <p class="card-text">{{movie.overview | slice:0:100}}...</p>
-                <a href="#"><button class="btn btn-primary">More info</button></a>
+                <a routerLink='/movieDetails/{{movie.id}}' routerLinkActive="router-link-active" ><button class="btn btn-primary">More info</button></a>
             </div>
         </div>
     </div>
 </div>
-

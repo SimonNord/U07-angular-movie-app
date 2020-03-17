@@ -13,7 +13,7 @@ export class MoviesService {
 
   API_KEY = "b33e841dc377dd55c73286b5debd7e09";
   apiUrl: string;
-  result: Movie[];
+  results: Movie[];
   searchQuery: string;
 
   constructor(private http: HttpClient) {}
@@ -21,6 +21,12 @@ export class MoviesService {
   getTopRated(): Observable<Movie[]> {
     this.apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=b33e841dc377dd55c73286b5debd7e09&language=en-US&page=1`;
     return this.http
+      .get<any>(this.apiUrl).pipe(map(res => res.results));
+    }
+
+    getMovieDetails(movie_id) : Observable<Movie> {
+      this.apiUrl = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=b33e841dc377dd55c73286b5debd7e09&language=en-US`;
+      return this.http
       .get<any>(this.apiUrl).pipe(map(res => res.results));
     }
 
