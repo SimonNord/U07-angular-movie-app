@@ -1,5 +1,10 @@
-<div class="row">
+<div *ngIf="selectedMovie" class="row">
     <div class="col-sm-12">
-        <span></span>
+        <img class="card-img-top" src="{{imgBaseUrl}}{{selectedMovie.poster_path}}" alt="">
+        <div class="card-body">
+            <h4 class="card-title">{{selectedMovie.title}}</h4>
+            <p class="card-text">{{selectedMovie.overview}}</p>
+            <button (click)="goBack()" class="btn btn-primary">Go Back</button>
+        </div>
     </div>
 </div>

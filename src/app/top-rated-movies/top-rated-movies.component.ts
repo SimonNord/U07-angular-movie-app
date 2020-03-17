@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from '../movies.service';
 
 
@@ -12,7 +12,7 @@ export class TopRatedMoviesComponent implements OnInit {
   
 topRatedMovies;
 
-imgBaseUrl = "https://image.tmdb.org/t/p/w185/"
+imgBaseUrl = "https://image.tmdb.org/t/p/w185/";
 
   constructor(private moviesService: MoviesService) { }
 
