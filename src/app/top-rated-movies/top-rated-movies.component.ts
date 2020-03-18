@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MoviesService } from '../movies.service';
 
 
+
 @Component({
   selector: 'app-top-rated-movies',
   templateUrl: './top-rated-movies.component.html',
@@ -9,7 +10,6 @@ import { MoviesService } from '../movies.service';
 })
 export class TopRatedMoviesComponent implements OnInit {
 
-  
 topRatedMovies;
 
 imgBaseUrl = "https://image.tmdb.org/t/p/w185/";

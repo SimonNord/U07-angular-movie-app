@@ -4,6 +4,11 @@
         <div class="card-body">
             <h4 class="card-title">{{selectedMovie.title}}</h4>
             <p class="card-text">{{selectedMovie.overview}}</p>
+            <div d-flex>
+                <ul *ngFor="let credits of selectedMovieCredits">
+                    <li>{{credits.id}}</li>
+                </ul>
+            </div>
             <button (click)="goBack()" class="btn btn-primary">Go Back</button>
         </div>
     </div>
