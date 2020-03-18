@@ -6,7 +6,7 @@
             <p class="card-text">{{selectedMovie.overview}}</p>
             <div d-flex>
                 <ul *ngFor="let credits of selectedMovieCredits">
-                    <li>{{credits.id}}</li>
+                    <li>{{credits.name | slice:0:5}}</li>
                 </ul>
             </div>
             <button (click)="goBack()" class="btn btn-primary">Go Back</button>

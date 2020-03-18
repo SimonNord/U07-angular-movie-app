@@ -24,14 +24,14 @@ export class MoviesService {
       .get<any>(this.apiUrl).pipe(map(res => res.results));
     }
 
-    getMovieDetails(movie_id:number) : Observable<Movie> {
-      this.apiUrl = `${this.baseApiUrl}/movie/${movie_id}?api_key=${this.API_KEY}&language=en-US`;
-      return this.http
-      .get<any>(this.apiUrl);
-    }
+  getMovieDetails(movie_id:number) : Observable<Movie> {
+    this.apiUrl = `${this.baseApiUrl}/movie/${movie_id}?api_key=${this.API_KEY}&language=en-US`;
+    return this.http
+    .get<any>(this.apiUrl);
+  }
 
-  search(): Observable<any>{
-    this.apiUrl = `${this.baseApiUrl}/search/multi?api_key=${this.API_KEY}&language=en-US&query=${this.searchQuery}}&page=1&include_adult=false`
+  search(searchQuery: string) {
+    this.apiUrl = `${this.baseApiUrl}/search/multi?api_key=${this.API_KEY}&language=en-US&query=${searchQuery}}&page=1&include_adult=false`
     return this.http
       .get<any>(this.apiUrl).pipe(map(res => res.results));
   }
@@ -39,7 +39,7 @@ export class MoviesService {
   getCredits(movie_id) {
     this.apiUrl = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${this.API_KEY}`;
     return this.http
-    .get<any>(this.apiUrl).pipe(map(res => res.results));
+    .get<any>(this.apiUrl).pipe(map(res => res.cast));
     
   }
   }

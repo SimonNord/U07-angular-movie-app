@@ -11,8 +11,10 @@ import { MoviesService } from '../movies.service';
 export class TopRatedMoviesComponent implements OnInit {
 
 topRatedMovies;
+searchQuery: string;
 
 imgBaseUrl = "https://image.tmdb.org/t/p/w185/";
+
 
   constructor(private moviesService: MoviesService) { }
 
@@ -22,6 +24,12 @@ imgBaseUrl = "https://image.tmdb.org/t/p/w185/";
 
   getTopRated(): void {
     this.moviesService.getTopRated().subscribe(movies => this.topRatedMovies = movies);
+  }
+
+  search(){
+    this.moviesService.search(this.searchQuery).subscribe(filteredMovies => {
+      this.topRatedMovies = filteredMovies;
+      console.log(this.searchQuery)});
   }
 
 }

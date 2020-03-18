@@ -1,6 +1,18 @@
 <h2>Top rated movies</h2>
+<form action="#">
+    <input name="search"type="text" placeholder="Search Movies/Actors" [(ngModel)]="searchQuery">
+    <button (click)="search()"type="submit">Search</button>
+</form>
 <div class="row">
-    <div class="col-sm-6 col-lg-4 flex-wrap" *ngFor="let movie of topRatedMovies">
+    <div class="col-sm-6 col-lg-4" *ngFor="let movie of topRatedMovies">
+        <div *ngIf="movie.known_for_department" class="card-body">
+            <img class="card-img-top img-responsive"src="{{imgBaseUrl}}{{movie.profile_path}}" alt="profile picture">
+            <h2 class="card-title">{{movie.name}}</h2>
+            <p class="card-text">{{movie.known_for_department}}</p>
+            <div class="card-footer" *ngFor="let known of movie.known_for">
+                <p>{{known.title}}</p>
+            </div>
+        </div>
         <img class="card-img-top img-responsive" src="{{imgBaseUrl}}{{movie.poster_path}}" alt="">
         <div class="card-body">
             <h4 class="card-title">{{movie.title}}</h4>
