@@ -8,6 +8,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

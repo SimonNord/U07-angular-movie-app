@@ -1,24 +1,31 @@
 <h2>Top rated movies</h2>
+<nav class="navbar navbar-light bg-dark">
 <form action="#">
     <input name="search"type="text" placeholder="Search Movies/Actors" [(ngModel)]="searchQuery">
     <button (click)="search()"type="submit">Search</button>
 </form>
+</nav>
 <div class="row">
     <div class="col-sm-6 col-lg-4" *ngFor="let movie of topRatedMovies">
         <div *ngIf="movie.known_for_department" class="card-body">
             <img class="card-img-top img-responsive"src="{{imgBaseUrl}}{{movie.profile_path}}" alt="profile picture">
-            <h2 class="card-title">{{movie.name}}</h2>
-            <p class="card-text">{{movie.known_for_department}}</p>
-            <div class="card-footer" *ngFor="let known of movie.known_for">
-                <p>{{known.title}}</p>
-            </div>
+            <h4 class="card-title">{{movie.name}}</h4>
+            <p class="card-text">Profession: {{movie.known_for_department}}</p>
+            <p>Known for:</p>
+            <ul class="list-inline" *ngFor="let known of movie.known_for">
+                    <li class="list-inline-item"><a>{{known.title}}</a></li>
+            </ul>
         </div>
-        <img class="card-img-top img-responsive" src="{{imgBaseUrl}}{{movie.poster_path}}" alt="">
+        <img class="card-img-top img-responsive" *ngIf="movie.poster_path" src="{{imgBaseUrl}}{{movie.poster_path}}" alt="Movie Poster">
+        <img class="card-img-top img-responsive no-image" src="https://media.amorina.se/catalog/product/placeholder/default/no_image_placeholder.png" alt="no image placeholder" *ngIf="!movie.poster_path">
         <div class="card-body">
             <h4 class="card-title">{{movie.title}}</h4>
             <p class="card-text">{{movie.overview | slice:0:100}}...</p>
             <a routerLink='/movieDetails/{{movie.id}}' routerLinkActive="router-link-active"><button
                     class="btn btn-primary">More info</button></a>
         </div>
+    </div>
+    <div *ngIf='searchQuery != "" && !topRatedMovies'>
+        <h4>No results found with search:<strong> {{searchQuery}}</strong></h4>
     </div>
 </div>

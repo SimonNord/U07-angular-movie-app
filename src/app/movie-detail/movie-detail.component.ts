@@ -18,6 +18,7 @@ export class MovieDetailComponent implements OnInit {
 
   imgBaseUrl = "https://image.tmdb.org/t/p/w185/";
 
+  // Dependency injection to get ActivatedRoute, MovieService and Location in this component
   constructor(
     
     private route: ActivatedRoute,
@@ -27,6 +28,11 @@ export class MovieDetailComponent implements OnInit {
     private location : Location
     ) { }
 
+  /* on init, run the getMovieDetails which calls MovieService which fetches the 
+     details and credits from API.
+
+     Sets the value of class variables selectedMovie, selectedMovieCredits to the result.
+  */
   ngOnInit(): void {
     this.getMovieDetails();
 
@@ -39,16 +45,9 @@ export class MovieDetailComponent implements OnInit {
     this.moviesService.getMovieDetails(parseInt(id)).subscribe(movie =>  this.selectedMovie = movie);
 
     this.moviesService.getCredits(id).subscribe(credits => this.selectedMovieCredits = credits);
-  
-  
-     /*   let movie = this.moviesService.getMovieDetails(id);
-    let credits = this.moviesService.getCredits(id);
-
-    const result = concat(movie,credits);
-
-    result.subscribe(result => console.log(result)); */
   }
 
+  // Function to go back to the previous page
   goBack() {
     this.location.back();
   }

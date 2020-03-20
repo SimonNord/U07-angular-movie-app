@@ -2,14 +2,16 @@
     <div class="col-sm-12">
         <img class="card-img-top" src="{{imgBaseUrl}}{{selectedMovie.poster_path}}" alt="">
         <div class="card-body">
-            <h4 class="card-title">{{selectedMovie.title}}</h4>
+            <h3 class="card-title">{{selectedMovie.title}}</h3>
+            <h6 class="release_date">Release date: {{selectedMovie.release_date}}</h6>
             <p class="card-text">{{selectedMovie.overview}}</p>
-            <div d-flex>
-                <ul *ngFor="let credits of selectedMovieCredits">
-                    <li>{{credits.name | slice:0:5}}</li>
+            <h4>Actors:</h4>
+                <ul class="list-inline" *ngFor="let credits of selectedMovieCredits | slice:0:5">
+                    <li class="list-item">
+                        <a>{{ credits.name }}</a>
+                    </li>
                 </ul>
             </div>
             <button (click)="goBack()" class="btn btn-primary">Go Back</button>
-        </div>
     </div>
 </div>

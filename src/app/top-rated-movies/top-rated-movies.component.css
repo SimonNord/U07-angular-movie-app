@@ -5,3 +5,8 @@ img {
 p {
     width: 75%;
 }
+
+.no-image {
+    height: 278px;
+    width:185;
+}

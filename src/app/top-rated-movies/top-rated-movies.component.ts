@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service';
 
 
@@ -10,8 +10,8 @@ import { MoviesService } from '../movies.service';
 })
 export class TopRatedMoviesComponent implements OnInit {
 
-topRatedMovies;
-searchQuery: string;
+topRatedMovies = [];
+searchQuery: string = "";
 
 imgBaseUrl = "https://image.tmdb.org/t/p/w185/";
 
@@ -23,13 +23,16 @@ imgBaseUrl = "https://image.tmdb.org/t/p/w185/";
   }
 
   getTopRated(): void {
-    this.moviesService.getTopRated().subscribe(movies => this.topRatedMovies = movies);
+    this.moviesService.getTopRated().subscribe(movies => {
+      this.topRatedMovies = movies;
+      console.log(this.topRatedMovies);
+      });
   }
 
   search(){
     this.moviesService.search(this.searchQuery).subscribe(filteredMovies => {
       this.topRatedMovies = filteredMovies;
-      console.log(this.searchQuery)});
+      console.log(this.topRatedMovies)});
   }
 
 }
