@@ -40,6 +40,8 @@ export class MovieDetailComponent implements OnInit {
   
 
   getMovieDetails() : void {
+    /* Extract the uri "movie_id" that is named in the routes file
+       and sets it to the const id */
     const id  = this.route.snapshot.paramMap.get("movie_id");
 
     this.moviesService.getMovieDetails(parseInt(id)).subscribe(movie =>  this.selectedMovie = movie);

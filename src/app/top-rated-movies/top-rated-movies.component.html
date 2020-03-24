@@ -2,12 +2,14 @@
 <nav class="navbar navbar-light bg-dark">
 <form action="#">
     <input name="search"type="text" placeholder="Search Movies/Actors" [(ngModel)]="searchQuery">
+    <!-- Event binding with click that runs the search function in the component -->
     <button (click)="search()"type="submit">Search</button>
 </form>
 </nav>
 <div class="row">
     <div class="col-sm-6 col-lg-4" *ngFor="let movie of topRatedMovies">
         <div *ngIf="movie.known_for_department" class="card-body">
+            <!-- String interpolation for imgBaseUrl and movie.name and more -->
             <img class="card-img-top img-responsive"src="{{imgBaseUrl}}{{movie.profile_path}}" alt="profile picture">
             <h4 class="card-title">{{movie.name}}</h4>
             <p class="card-text">Profession: {{movie.known_for_department}}</p>

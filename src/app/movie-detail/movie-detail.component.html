@@ -1,7 +1,10 @@
-<div *ngIf="selectedMovie" class="row">
+<!-- Loops through the selectedMovie array and created a div
+     with the below content to each individual one -->
+<div *ngIf="selectedMovie" class="row"> 
     <div class="col-sm-12">
         <img class="card-img-top" src="{{imgBaseUrl}}{{selectedMovie.poster_path}}" alt="">
         <div class="card-body">
+            <!-- String interpolation with selectedMovie title and more -->
             <h3 class="card-title">{{selectedMovie.title}}</h3>
             <h6 class="release_date">Release date: {{selectedMovie.release_date}}</h6>
             <p class="card-text">{{selectedMovie.overview}}</p>
